@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Carbook</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        .container{
+
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        }
+    </style>
+
+</head>
+
+<header>
+    <h1 style="text-align: center; font-size: 100px; font-family: Arial,serif">Cars</h1>
+</header>
+<body>
+
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Construction Date</th>
+            <th>PS amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="c : ${cars}">
+            <td th:text="${c.brand}"></td>
+            <td th:text="${c.model}"></td>
+            <td th:text="${c.constructionDate}"></td>
+            <td th:text="${c.ps}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+</body>
+</html>

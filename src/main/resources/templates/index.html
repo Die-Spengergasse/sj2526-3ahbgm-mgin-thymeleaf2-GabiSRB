@@ -2,16 +2,61 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Greeting</title>
+    <title>Carbook</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        .container{
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+
+
+            margin-left: 300px;
+            margin-right: 300px;
+        }
+
+        a{
+            display: block;
+            margin: 10px 0;
+            font-size: 25px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+    </style>
+
 </head>
+
+<header>
+    <h1 style="text-align: center; font-size: 100px; font-family: Arial,serif">Carbook</h1>
+</header>
 <body>
+
+<!--System.out.println("1) new Car");-->
+<!--System.out.println("2) Car list");-->
+<!--System.out.println("3) remove Car");-->
+<!--System.out.println("5) update Car");-->
+
 <div class="container">
-    <h1>Hallo</h1>
-    Datum: <span th:text="${today}"></span>
-    <div>
-        <a href="/patient/list">patient list</a>
-    </div>
+
+    <p>
+        <a href="/cars/add">new car</a>
+    </p>
+    <p>
+        <a href="/cars/list">cars list</a>
+    </p>
+    <p>
+        <a href="/cars/remove">remove car</a>
+    </p>
+    <p>
+        <a href="/cars/update">update car</a>
+    </p>
 </div>
+
+
 </body>
 </html>
