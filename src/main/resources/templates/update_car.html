@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Carbook</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <style>
+        .container{
+
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        }
+    </style>
+
+
+</head>
+
+<header>
+    <h1 style="text-align: center; font-size: 100px; font-family: Arial,serif">Cars</h1>
+</header>
+<body>
+<main>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Construction Date</th>
+            <th>PS amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="c : ${cars}">
+
+            <td th:text="${c.brand}"></td>
+            <td th:text="${c.model}"></td>
+            <td th:text="${#temporals.format(c.constructionDate, 'dd.MM.yyyy')}"></td>
+            <td th:text="${c.ps}"></td>
+        
+            <td> <button type="button"   th:data-brand="${c.brand}"
+                         th:data-model="${c.model}"
+                         th:data-ps="${c.ps}"
+                         th:data-id="${c.id}"
+                         th:data-construction="${c.constructionDate}"
+
+                         onclick="openModal(this)">Edit</button> </td>
+            
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+
+<div class="modal fade" id="carModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"
+     data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title" id="modalTitle">Edit Car</h5>
+            </div>
+            <div class="modal-body">
+                <form id="carForm" th:action="@{/cars/update}" method="post" th:object="${car}">
+                    <div>
+                        <input type="hidden" th:field="*{id}" id="id">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="brand" class="form-label">Brand *</label>
+                        <input  type="text" th:field="*{brand}" class="form-control" id="brand" required
+                               placeholder="Type the brand of the car">
+                    </div>
+
+                    <div class="mb-3 position-relative">
+                        <label for="model" class="form-label">Model *</label>
+                        <input type="text"  th:field="*{model}" class="form-control" id="model" required
+                               placeholder="Type the model of the car">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="ps" class="form-label">PS *</label>
+                        <input th:field="*{ps}" type="number" class="form-control" id="ps" required
+                               placeholder="Type the PS amount of the car">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="construction" class="form-label">Construction *</label>
+                        <input type="date" th:field="*{constructionDate}" class="form-control" id="construction" required
+                               placeholder="Type the construction date of the car">
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="submit" id="addSubmit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</main>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="/JS/carEditJS.js"></script>
+</html>

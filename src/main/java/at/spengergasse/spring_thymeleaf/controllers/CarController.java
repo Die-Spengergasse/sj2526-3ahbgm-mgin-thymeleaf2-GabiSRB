@@ -16,22 +16,22 @@ import org.springframework.web.bind.annotation.*;
 public class CarController {
     private final CarService carService;
 
-    @GetMapping("/list")
-    public String list(Model model) {
-        model.addAttribute("cars", carService.getAllCars());
-        return "carlist";
-    }
-
-
-    @GetMapping("/add")
-    public String addCar(Model model) {
-        model.addAttribute("car", new Car());
-        return "add_car";
-    }
 
     @PostMapping("/add")
     public String addCar(@ModelAttribute("car") Car car) {
         carService.addCar(car);
+        return "redirect:/cars/list";
+    }
+
+    @PostMapping("/update")
+    public String updateCar(@ModelAttribute("car") Car car) {
+        carService.update(car);
+        return "redirect:/cars/list";
+    }
+
+    @PostMapping("/remove")
+    public String removeCar(@RequestParam("id") Integer id) {
+        carService.remove(id);
         return "redirect:/cars/list";
     }
 

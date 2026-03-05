@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 public class CarService {
    private final CarRepository carRepository;
 
-    public void remove(){
-
+    public void remove(Integer id) {
+        carRepository.deleteById(id);
     }
 
     public void addCar(Car car) {
@@ -21,5 +21,9 @@ public class CarService {
 
     public @Nullable Object getAllCars() {
         return carRepository.findAll();
+    }
+
+    public void update(Car car) {
+        carRepository.save(car);
     }
 }

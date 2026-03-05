@@ -11,7 +11,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
+            margin:auto;
         }
     </style>
 
@@ -26,7 +26,7 @@
     <form th:action="@{/cars/add}" th:object="${car}" method="post">
         <input type="text" th:field="*{brand}" class="form-control" placeholder="Brand name" required="required">
         <input type="text" th:field="*{model}" class="form-control" placeholder="Model name" required="required">
-        <input type="text" th:field="*{ps}" class="form-control" placeholder="PS amount" required="required">
+        <input type="number" min="1" th:field="*{ps}" class="form-control" placeholder="PS amount" required="required">
         <input type="date" th:field="*{constructionDate}" class="form-control" placeholder="Date of construction" required="required">
         <input type="submit" class="form-control" value="Save">
     </form>

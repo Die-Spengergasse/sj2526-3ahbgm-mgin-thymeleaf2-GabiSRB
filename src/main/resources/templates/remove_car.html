@@ -11,7 +11,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: auto;
+
         }
     </style>
 
@@ -23,6 +23,8 @@
 <body>
 
 <div class="container">
+
+
     <table class="table">
         <thead>
         <tr>
@@ -34,14 +36,21 @@
         </thead>
         <tbody>
         <tr th:each="c : ${cars}">
-            <td th:text="${c.brand}"></td>
-            <td th:text="${c.model}"></td>
-            <td th:text="${#temporals.format(c.constructionDate, 'dd.MM.yyyy')}"></td>
-            <td th:text="${c.ps}"></td>
+
+                <td th:text="${c.brand}"></td>
+                <td th:text="${c.model}"></td>
+                <td th:text="${#temporals.format(c.constructionDate, 'dd.MM.yyyy')}"></td>
+                <td th:text="${c.ps}"></td>
+           <td> <form th:action="@{/cars/remove}" method="post">
+                <input type="hidden" name="id" th:value="${c.id}">
+                <button type="submit" >Delete</button>
+            </form>
+           </td>
         </tr>
         </tbody>
 
     </table>
+
 </div>
 </body>
 </html>

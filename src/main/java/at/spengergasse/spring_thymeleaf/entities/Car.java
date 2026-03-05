@@ -27,7 +27,7 @@ public class Car {
     private String model;
 
     @Column(name="c_ps")
-    private int ps;
+    private Integer ps;
 
     @Column(name="c_construction")
     private LocalDate constructionDate;
