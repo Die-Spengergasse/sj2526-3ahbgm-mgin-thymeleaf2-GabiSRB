@@ -1,6 +1,5 @@
 package at.spengergasse.spring_thymeleaf.services;
 
-
 import at.spengergasse.spring_thymeleaf.entities.Car;
 import at.spengergasse.spring_thymeleaf.repositories.CarRepository;import lombok.RequiredArgsConstructor;
 import org.jspecify.annotations.Nullable;

@@ -1,13 +1,9 @@
 package at.spengergasse.spring_thymeleaf.controllers;
 
-
 import at.spengergasse.spring_thymeleaf.entities.Car;
-import at.spengergasse.spring_thymeleaf.entities.Patient;
 import at.spengergasse.spring_thymeleaf.services.CarService;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
