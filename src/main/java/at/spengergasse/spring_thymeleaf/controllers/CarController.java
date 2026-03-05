@@ -26,13 +26,13 @@ public class CarController {
     @PostMapping("/update")
     public String updateCar(@ModelAttribute("car") Car car) {
         carService.update(car);
-        return "redirect:/cars/list";
+        return "redirect:/cars/update";
     }
 
     @PostMapping("/remove")
-    public String removeCar(@RequestParam("id") Integer id) {
+    public String removeCar(@ModelAttribute("id") Integer id) {
         carService.remove(id);
-        return "redirect:/cars/list";
+        return "redirect:/cars/remove";
     }
 
 
